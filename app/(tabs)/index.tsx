@@ -8,12 +8,13 @@ import { Text, View, useThemeColor } from '@/components/Themed';
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const muted = useThemeColor({}, 'muted');
+  const border = useThemeColor({}, 'border');
 
   return (
     <ScrollView
       contentContainerStyle={[styles.scroll, { paddingTop: insets.top + 8, paddingBottom: insets.bottom + 24 }]}
       showsVerticalScrollIndicator={false}>
-      <View style={styles.hero} lightColor="#FFFFFF" darkColor="#141A22">
+      <View style={[styles.hero, { borderColor: border }]} lightColor="#FFFFFF" darkColor="#141A22">
         <Text style={styles.kicker}>Today</Text>
         <Text style={styles.headline}>Everything in one calm place</Text>
         <Text style={[styles.sub, { color: muted }]}>
@@ -39,11 +40,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 24,
     gap: 14,
-    shadowColor: '#000',
-    shadowOpacity: 0.06,
-    shadowRadius: 16,
-    shadowOffset: { width: 0, height: 8 },
-    elevation: 2,
+    borderWidth: 1,
   },
   kicker: {
     fontSize: 13,
